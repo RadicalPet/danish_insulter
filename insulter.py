@@ -74,6 +74,10 @@ if __name__ == '__main__':
     if unique:
         edder_list = remove_logged_words(edder_list, log)
 
+    if not edder_list:
+        print('all possible edder-class words have been used - add new logfile, or remove unique flag')
+        exit(0)
+
     edder = choice(edder_list)
     amplifiers = find_amplifiers(edder, found_amplifiers)
 
@@ -101,7 +105,7 @@ if __name__ == '__main__':
         insult_list = remove_logged_words(insult_list, log)
 
     if not disgusting_list:
-        print('all possible insults words have been used - add new logfile, or remove unique flag')
+        print('all possible insult words have been used - add new logfile, or remove unique flag')
         exit(0)
 
     remove_amplifiers(insult_list)
