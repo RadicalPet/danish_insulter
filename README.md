@@ -36,4 +36,5 @@ The insulter always uses `amplifier.txt` to make sure that no two words with the
 - du er saftsuseedderpeterhamresparkemig forfærdelig, din evnesvage kakerlak
 - du er fandengalemig uæstetisk, din åndssløve stymper
 
-The insult wordlist is heavily inspired by the excellent musings of Captain Haddock. All wordlists have been made possible by the awesome feature "ord i nærheden" in the essential online dictionary [ordnet](https://ordnet.dk/),
+The insult wordlist is heavily inspired by the excellent musings of Captain Haddock.<br>
+All wordlists have been made possible by the awesome feature "ord i nærheden" in the essential online dictionary [ordnet](https://ordnet.dk/).
