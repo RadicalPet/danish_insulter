@@ -15,11 +15,10 @@ def find_amplifiers(word, found_amplifiers):
             found_amplifiers.append(amplifier)
     return found_amplifiers
 
-def remove_amplifiers(word_list):
-    amplifiers = read_words('amplifiers.txt')
+def remove_found_amplifiers(word_list, found_amplifiers):
     word_list_copy = word_list.copy()
     for word in word_list_copy:
-        for amplifier in amplifiers:
+        for amplifier in found_amplifiers:
             if amplifier in word:
                 try:
                     word_list.remove(word)
@@ -41,6 +40,31 @@ def remove_logged_words(word_list, log_path):
 
     return word_list
 
+def find_word_starting_with_letter(word_list, letter):
+    words_starting_with_letter = []
+    for word in word_list:
+        if word.startswith(letter):
+            words_starting_with_letter.append(word)
+    if words_starting_with_letter:
+        return choice(words_starting_with_letter)
+    else:
+        return choice(word_list)
+
+
+def get_word(word_list, found_amplifiers, word_type, log, unique, alliteration):
+
+    if unique:
+        word_list = remove_logged_words(word_list, log)
+
+    remove_found_amplifiers(word_list, found_amplifiers)
+
+    if not disgusting_list:
+        print(f'all possible {word_type}  words have been used - add new logfile, or remove unique flag')
+        exit(0)
+    word = choice(word_list)
+    found_amplifiers = find_amplifiers(word, found_amplifiers)
+    return word, found_amplifiers
+
 
 if __name__ == '__main__':
 
@@ -50,12 +74,17 @@ if __name__ == '__main__':
     parser.add_argument('--unique',
             help='keep insult values unique to logfile - will demand new logfile once all possible values have been used for any position',
             action=argparse.BooleanOptionalAction)
+    parser.add_argument('--alliteration',
+            help='the insulter will try to use alliterations where possible',
+            action=argparse.BooleanOptionalAction)
 
+ 
     args = parser.parse_args()
 
     subject = args.subject
     log = args.log
     unique = args.unique
+    alliteration = args.alliteration
 
     if not log and unique:
         print('--unique needs --log to be set')
@@ -71,45 +100,11 @@ if __name__ == '__main__':
 
     found_amplifiers = []
 
-    if unique:
-        edder_list = remove_logged_words(edder_list, log)
+    edder, found_amplifiers = get_word(edder_list, found_amplifiers, 'edder class', log, unique, alliteration)
+    disgusting, found_amplifiers = get_word(disgusting_list, found_amplifiers, 'disgusting', log, unique, alliteration)
+    fucking, found_amplifiers = get_word(fucking_list, found_amplifiers, 'fucking', log, unique, alliteration)
+    insult, found_amplifiers = get_word(insult_list, found_amplifiers, 'edder class', log, unique, alliteration)
 
-    if not edder_list:
-        print('all possible edder-class words have been used - add new logfile, or remove unique flag')
-        exit(0)
-
-    edder = choice(edder_list)
-    amplifiers = find_amplifiers(edder, found_amplifiers)
-
-    if unique:
-        disgusting_list = remove_logged_words(disgusting_list, log)
-
-    remove_amplifiers(disgusting_list)
-    if not disgusting_list:
-        print('all possible disgusting words have been used - add new logfile, or remove unique flag')
-        exit(0)
-    disgusting = choice(disgusting_list)
-    amplifiers = find_amplifiers(disgusting, found_amplifiers)
-
-    if unique:
-        fucking_list = remove_logged_words(fucking_list, log)
-
-    remove_amplifiers(fucking_list)
-    if not disgusting_list:
-        print('all possible fucking words have been used - add new logfile, or remove unique flag')
-        exit(0)
-    fucking = choice(fucking_list)
-    amplifiers = find_amplifiers(fucking, found_amplifiers)
-
-    if unique:
-        insult_list = remove_logged_words(insult_list, log)
-
-    if not disgusting_list:
-        print('all possible insult words have been used - add new logfile, or remove unique flag')
-        exit(0)
-
-    remove_amplifiers(insult_list)
-    insult = choice(insult_list)
 
     if not subject:
         insult = f'du er {edder} {disgusting}, din {fucking} {insult}'
