@@ -56,12 +56,15 @@ def get_word(word_list, found_amplifiers, word_type, log, unique, alliteration):
     if unique:
         word_list = remove_logged_words(word_list, log)
 
-    remove_found_amplifiers(word_list, found_amplifiers)
+    word_list = remove_found_amplifiers(word_list, found_amplifiers)
 
-    if not disgusting_list:
+    if not word_list:
         print(f'all possible {word_type}  words have been used - add new logfile, or remove unique flag')
         exit(0)
-    word = choice(word_list)
+    if alliteration:
+        word = find_word_starting_with_letter(word_list, alliteration)
+    else:
+        word = choice(word_list)
     found_amplifiers = find_amplifiers(word, found_amplifiers)
     return word, found_amplifiers
 
@@ -99,11 +102,17 @@ if __name__ == '__main__':
     insult_list = read_words('insult.txt')
 
     found_amplifiers = []
+    letter = None
 
-    edder, found_amplifiers = get_word(edder_list, found_amplifiers, 'edder class', log, unique, alliteration)
-    disgusting, found_amplifiers = get_word(disgusting_list, found_amplifiers, 'disgusting', log, unique, alliteration)
-    fucking, found_amplifiers = get_word(fucking_list, found_amplifiers, 'fucking', log, unique, alliteration)
-    insult, found_amplifiers = get_word(insult_list, found_amplifiers, 'edder class', log, unique, alliteration)
+    edder, found_amplifiers = get_word(edder_list, found_amplifiers, 'edder class', log, unique, letter)
+    if alliteration:
+        letter = edder[0]
+    disgusting, found_amplifiers = get_word(disgusting_list, found_amplifiers, 'disgusting', log, unique, letter)
+    letter = None
+    fucking, found_amplifiers = get_word(fucking_list, found_amplifiers, 'fucking', log, unique, letter)
+    if alliteration:
+        letter = fucking[0]
+    insult, found_amplifiers = get_word(insult_list, found_amplifiers, 'edder class', log, unique, letter)
 
 
     if not subject:
