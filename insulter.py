@@ -112,7 +112,7 @@ if __name__ == '__main__':
     fucking, found_amplifiers = get_word(fucking_list, found_amplifiers, 'fucking', log, unique, letter)
     if alliteration:
         letter = fucking[0]
-    insult, found_amplifiers = get_word(insult_list, found_amplifiers, 'edder class', log, unique, letter)
+    insult, found_amplifiers = get_word(insult_list, found_amplifiers, 'insult', log, unique, letter)
 
 
     if not subject:

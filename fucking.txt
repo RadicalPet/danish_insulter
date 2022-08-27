@@ -1,6 +1,8 @@
 absurde
 abstruse
 allerhelvedes
+altoverskyggende
+åndsforsnoskede
 apoalyptiske
 åndssløve
 åndssvage
@@ -24,12 +26,14 @@ kugleskøre
 kvajede
 latterlige
 lunatiske
+maximale
 mystiske
 pissehamrende
 pivhamrende
 pløkåndssvage
 rekordagtige
 rivende
+rivravruskende
 sindssyge
 splittertossede
 stiktossede
@@ -37,5 +41,7 @@ stjernetossede
 stjernegale
 tåbelige
 tumpede
+uforlignelige
+uovertræffelige
 vanvittige
 barokke

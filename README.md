@@ -53,6 +53,7 @@ The following list has been created with the `--alliteration` flag enabled:
 - du er edderbrandbrølemig jordslået, din rivende røvbanan
 - du er edderhakkemig grim som bare fanden, din mystiske møgfisse
 - du er kraftpeterpuleme uformelig, din abstruse trompetsnegl
+- du er satanraspemig skummel, din rekordagtige røvbanan
 
 
 The insult wordlist is heavily inspired by the excellent musings of Captain Haddock.<br>

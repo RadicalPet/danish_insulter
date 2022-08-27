@@ -1,6 +1,8 @@
 blodbestænkt
+defekt
 elendig
 fæl
+fejlslagen
 forbistret
 forfærdelig
 forpjusket
@@ -14,6 +16,7 @@ håbløs
 ikke fem potter pis værd
 ildelugtende
 jordslået
+kaput
 klam
 kreperlig
 modbydelig
@@ -26,15 +29,18 @@ pjusket
 pilrådden
 rædderlig
 rædselsfuld
+sjasket
 skummel
 styg
 tudegrim
 uappetitlig
 uæstetisk
+uduelig
 uformelig
 uhumsk
 ulækker
 underlødig
 utiltalende
 vammel
+værdigløs
 vederstyggelig
