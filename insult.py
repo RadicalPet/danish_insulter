@@ -2,11 +2,11 @@ from random import choice
 from pathlib import Path
 from typing import List
 
-amplifier_path = 'amplifiers.txt'
-edder_path = 'edder.txt'
-disgusting_path = 'disgusting.txt'
-fucking_path = 'fucking.txt'
-insult_path = 'insult.txt'
+amplifier_path      = 'word_lists/amplifiers.txt'
+edder_path          = 'word_lists/edder.txt'
+disgusting_path     = 'word_lists/disgusting.txt'
+fucking_path        = 'word_lists/fucking.txt'
+insult_path         = 'word_lists/insult.txt'
 
 
 class Insult:
