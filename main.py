@@ -1,8 +1,6 @@
 from typing import Union
-
 from fastapi import FastAPI
-
-from insulter import Insult
+from insult import Insult
 
 app = FastAPI()
 
@@ -13,6 +11,6 @@ def read_root():
 
 
 @app.get("/insult")
-def read_item(alliteration: Union[str, None] = None):
-    
-    return
+def read_item(id: Union[str, None] = None, subject: Union[str, None] = None, unique: bool = False, alliteration: bool = False):
+    insult = Insult(id, subject, unique, alliteration)
+    return {'insult' : insult.get_insult()}

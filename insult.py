@@ -1,6 +1,6 @@
 from random import choice
 from pathlib import Path
-from typing import List
+from typing import List, Union
 
 amplifier_path      = 'word_lists/amplifiers.txt'
 edder_path          = 'word_lists/edder.txt'
@@ -11,7 +11,8 @@ insult_path         = 'word_lists/insult.txt'
 
 class Insult:
 
-    def __init__(self, subject: str = None, unique: bool = False, alliteration: bool = False):
+    def __init__(self, id: Union[str, None] = None, subject: Union[str, None] = None, unique: bool = False, alliteration: bool = False):
+        self.id = id
         self.subject = subject
         self.unique = unique
         self.alliteration = alliteration
@@ -55,5 +56,8 @@ class Insult:
         disgusting = self.get_word(self.disgusting_list)
         fucking = self.get_word(self.fucking_list)
         insult = self.get_word(self.insult_list)
-        full_insult = f'du er {edder} {disgusting}, din {fucking} {insult}'
+        if not self.subject:
+            full_insult = f'du er {edder} {disgusting}, din {fucking} {insult}'
+        else:
+            full_insult = f'{self.subject} er {edder} {disgusting}, den {fucking} {insult}'
         return full_insult
