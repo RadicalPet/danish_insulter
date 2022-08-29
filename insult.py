@@ -100,8 +100,8 @@ class Insult:
         logged_insults = self.get_all_loged_insults()
         logged_insults_word_list = []
         for insult in logged_insults:
-            for word in insult.split():
-                logged_insults_word_list.appned(word)
+            for word in insult[0].split():
+                logged_insults_word_list.append(word)
         word_list_copy = word_list.copy()
         for word in word_list_copy:
             if word in logged_insults_word_list:
@@ -116,15 +116,30 @@ class Insult:
         cur.execute("INSERT INTO uuid_insult VALUES(?,?)", (self.id, insult_id))
         self.con.commit()
 
-    def get_word(self, word_list, word_type) -> Union[str, None]:
+    def find_word_starting_with_letter(self, word_list: List, letter: str):
+        words_starting_with_letter = []
+        for word in word_list:
+            if word.startswith(letter):
+                words_starting_with_letter.append(word)
+        if words_starting_with_letter:
+            return choice(words_starting_with_letter)
+        else:
+            return choice(word_list)
+
+    def get_word(self, word_list: List, word_type: str, letter: Union[str, None]) -> Union[str, None]:
         if self.unique:
             word_list = self.remove_logged_words(word_list)
         word_list = self.remove_found_amplifiers(word_list)
         if not word_list:
             raise ListExhaustedException(word_type)
-        return choice(word_list)
+        if letter:
+            word = self.find_word_starting_with_letter(word_list, letter)
+        else:
+            word = choice(word_list)
+        self.find_amplifiers(word)
+        return word
 
-    def get_insult(self) -> (bool, str):
+    def get_insult(self) -> (bool, str, str):
 
         if self.nolog and self.unique:
             return ("unique and nolog can not be used together", "")
@@ -132,10 +147,16 @@ class Insult:
         if self.unique and not self.id:
             self.id = str(uuid.uuid1())
 
-        edder = self.get_word(self.edder_list, "edder type")
-        disgusting = self.get_word(self.disgusting_list, "disgusting")
-        fucking = self.get_word(self.fucking_list, "fucking")
-        insult = self.get_word(self.insult_list, "insult")
+        letter = None
+        edder = self.get_word(self.edder_list, "edder type", letter)
+        if self.alliteration:
+            letter = edder[0]
+        disgusting = self.get_word(self.disgusting_list, "disgusting", letter)
+        letter = None
+        fucking = self.get_word(self.fucking_list, "fucking", letter)
+        if self.alliteration:
+            letter = fucking[0]
+        insult = self.get_word(self.insult_list, "insult", letter)
 
         if not self.subject:
             full_insult = f"du er {edder} {disgusting}, din {fucking} {insult}"
@@ -146,4 +167,4 @@ class Insult:
 
         if not self.nolog:
             self.log_insult(full_insult)
-        return (None, full_insult)
+        return (None, self.id, full_insult)
