@@ -1,29 +1,34 @@
 import os
 import sqlite3
 import uuid
-
-from random import choice
 from pathlib import Path
+from random import choice
 from typing import List, Union
 
-amplifier_path      = 'word_lists/amplifiers.txt'
-edder_path          = 'word_lists/edder.txt'
-disgusting_path     = 'word_lists/disgusting.txt'
-fucking_path        = 'word_lists/fucking.txt'
-insult_path         = 'word_lists/insult.txt'
+amplifier_path = "word_lists/amplifiers.txt"
+edder_path = "word_lists/edder.txt"
+disgusting_path = "word_lists/disgusting.txt"
+fucking_path = "word_lists/fucking.txt"
+insult_path = "word_lists/insult.txt"
 
-db = 'insults.db'
+db = "insults.db"
 
 
 class ListExhaustedException(Exception):
     def __init__(self, word_type):
-        message = f'All possible {word_type} words have been used - request new id, or remove unique flag.'
+        message = f"All possible {word_type} words have been used - request new id, or remove unique flag."
         super().__init__(message)
 
 
 class Insult:
-
-    def __init__(self, id: Union[str, None] = None, subject: Union[str, None] = None, unique: bool = False, alliteration: bool = False, nolog: bool = False):
+    def __init__(
+        self,
+        id: Union[str, None] = None,
+        subject: Union[str, None] = None,
+        unique: bool = False,
+        alliteration: bool = False,
+        nolog: bool = False,
+    ):
         self.id = id
         self.subject = subject
         self.unique = unique
@@ -45,27 +50,26 @@ class Insult:
             con = sqlite3.connect(db)
             cur = con.cursor()
             cur.execute(
-                '''
+                """
                 CREATE TABLE insults (
                     insult TEXT NOT NULL
                 );
-                '''
+                """
             )
             cur.execute(
-                '''
+                """
                 CREATE TABLE uuid_insult (
                     uuid TEXT NOT NULL,
                     insult_id INTEGER NOT NULL,
                     FOREIGN KEY(insult_id) REFERENCES insults(id)
                 )
-                '''
+                """
             )
             return con
         return sqlite3.connect(db)
 
-
     def read_words(self, file_path: str):
-        with open(file_path, 'r') as f:
+        with open(file_path, "r") as f:
             lines = f.readlines()
             return [line.rstrip() for line in lines]
 
@@ -88,7 +92,7 @@ class Insult:
 
     def get_all_loged_insults(self):
         cur = self.con.cursor()
-        res = cur.execute('SELECT * FROM uuid_insult WHERE uuid = ?',(self.id,))
+        res = cur.execute("SELECT * FROM uuid_insult WHERE uuid = ?", (self.id,))
         rows = list(cur.fetchall())
         return rows
 
@@ -104,15 +108,13 @@ class Insult:
                 word_list.remove(word)
         return word_list
 
-
     def log_insult(self, insult):
         cur = self.con.cursor()
-        cur.execute('INSERT INTO insults VALUES(?)', (insult,))
+        cur.execute("INSERT INTO insults VALUES(?)", (insult,))
         insult_id = cur.lastrowid
         self.con.commit()
-        cur.execute('INSERT INTO uuid_insult VALUES(?,?)', (self.id, insult_id))
+        cur.execute("INSERT INTO uuid_insult VALUES(?,?)", (self.id, insult_id))
         self.con.commit()
-
 
     def get_word(self, word_list, word_type) -> Union[str, None]:
         if self.unique:
@@ -125,20 +127,22 @@ class Insult:
     def get_insult(self) -> (bool, str):
 
         if self.nolog and self.unique:
-            return ('unique and nolog can not be used together', '')
+            return ("unique and nolog can not be used together", "")
 
         if self.unique and not self.id:
             self.id = str(uuid.uuid1())
 
-        edder = self.get_word(self.edder_list, 'edder type')
-        disgusting = self.get_word(self.disgusting_list, 'disgusting')
-        fucking = self.get_word(self.fucking_list, 'fucking')
-        insult = self.get_word(self.insult_list, 'insult')
+        edder = self.get_word(self.edder_list, "edder type")
+        disgusting = self.get_word(self.disgusting_list, "disgusting")
+        fucking = self.get_word(self.fucking_list, "fucking")
+        insult = self.get_word(self.insult_list, "insult")
 
         if not self.subject:
-            full_insult = f'du er {edder} {disgusting}, din {fucking} {insult}'
+            full_insult = f"du er {edder} {disgusting}, din {fucking} {insult}"
         else:
-            full_insult = f'{self.subject} er {edder} {disgusting}, den {fucking} {insult}'
+            full_insult = (
+                f"{self.subject} er {edder} {disgusting}, den {fucking} {insult}"
+            )
 
         if not self.nolog:
             self.log_insult(full_insult)
