@@ -148,7 +148,7 @@ class Insult:
         if self.nolog and self.unique:
             return ("unique and nolog can not be used together", "")
 
-        if self.unique and not self.id:
+        if not self.id:
             self.id = str(uuid.uuid1())
 
         letter = None
