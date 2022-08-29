@@ -16,9 +16,9 @@ db = "insults.db"
 
 class ListExhaustedException(Exception):
     def __init__(self, word_type):
-        message = f"All possible {word_type} words have been used - request new id, or remove unique flag."
-        super().__init__(message)
-
+        self.message = f"All possible {word_type} words have been used - request new id, or remove unique flag."
+    def __str__(self):
+        return self.message
 
 class Insult:
     def __init__(
@@ -92,9 +92,13 @@ class Insult:
 
     def get_all_loged_insults(self):
         cur = self.con.cursor()
-        res = cur.execute("SELECT * FROM uuid_insult WHERE uuid = ?", (self.id,))
-        rows = list(cur.fetchall())
-        return rows
+        cur.execute("SELECT * FROM uuid_insult WHERE uuid = ?", (self.id,))
+        insult_ids = [row[1] for row in list(cur.fetchall())]
+        all_insults = []
+        for insult_id in insult_ids:
+            cur.execute("SELECT * FROM insults WHERE rowid = ?", (insult_id,))
+            all_insults.append(cur.fetchone())
+        return all_insults
 
     def remove_logged_words(self, word_list):
         logged_insults = self.get_all_loged_insults()

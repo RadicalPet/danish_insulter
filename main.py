@@ -2,7 +2,7 @@ from typing import Union
 
 from fastapi import FastAPI
 
-from insult import Insult
+from insult import *
 
 app = FastAPI()
 
@@ -21,6 +21,8 @@ def read_item(
     nolog: bool = False,
 ):
     insult = Insult(id, subject, unique, alliteration, nolog)
-
-    error, id, insult = insult.get_insult()
+    try:
+        error, id, insult = insult.get_insult()
+    except ListExhaustedException as e:
+        return {"error": e, "id": id, "insult": None}
     return {"error": error, "id": id, "insult": insult}
