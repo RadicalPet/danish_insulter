@@ -22,7 +22,7 @@ def read_root():
     return {"Danish": "Insulter"}
 
 
-@app.get("/nederen")
+@app.get("/nederen", tags=["nederen"])
 def read_item(
     id: Union[str, None] =  Query(None, description="uuid to log the insult to - a uuid gets generated with every request without this parameter", ),
     subject: Union[str, None] =  Query(None, description='add subject for the insult (han/hen/hun/min chef etc.) - default is "du"', ),
@@ -39,7 +39,7 @@ def read_item(
         return {"error": e, "id": id, "insult": None}
     return {"error": error, "id": id, "insult": insult}
 
-@app.get("/historisk/{id}")
+@app.get("/historisk/{id}", tags=["historisk"])
 def read_item(id):
     print(id)
     insult = Insult(id=id)
