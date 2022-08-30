@@ -1,6 +1,31 @@
 # danish_insulter
 generates Danish insults
 
+IaaS (Insults as a Service): [edderma.me](eddarma.me)
+<br><br>
+
+* [Insult](edderma.me/nederen) : `GET /nederen`
+* Parameters:
+- `alliteration=true`
+    - tries to use alliterations were possible
+- `unique=true`
+    - keeps insults unique to `id` param until the shortest word list is exhausted
+- `id=uuid`
+    - requests without `id` generate new uuid to log insults to
+- `nolog=true`
+    - does not log insult - cannot used together with `unique`
+
+<br><br>
+Example response
+```json
+{
+    "error":null,
+    "id":"4cfc42d8-284d-11ed-8b66-a7f2b74297e1",
+    "insult":"du er kraftpetervæltemig frastødende, din groteske skidespræller"
+}
+```
+
+
 Below list of insults has been created with `python insulter.py --log log.txt --unique` which uses each word exactly once until the shortest wordlist has been exhausted.<br>
 The insulter always uses `amplifier.txt` to make sure that no two words with the same amplifier are used within one insult.
 
