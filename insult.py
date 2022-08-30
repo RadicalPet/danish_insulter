@@ -17,8 +17,10 @@ db = "insults.db"
 class ListExhaustedException(Exception):
     def __init__(self, word_type):
         self.message = f"All possible {word_type} words have been used - request new id, or remove unique flag."
+
     def __str__(self):
         return self.message
+
 
 class Insult:
     def __init__(
@@ -130,7 +132,9 @@ class Insult:
         else:
             return choice(word_list)
 
-    def get_word(self, word_list: List, word_type: str, letter: Union[str, None]) -> Union[str, None]:
+    def get_word(
+        self, word_list: List, word_type: str, letter: Union[str, None]
+    ) -> Union[str, None]:
         if self.unique:
             word_list = self.remove_logged_words(word_list)
         word_list = self.remove_found_amplifiers(word_list)

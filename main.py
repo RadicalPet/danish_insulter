@@ -12,7 +12,7 @@ def read_root():
     return {"Danish": "Insulter"}
 
 
-@app.get("/besudlet")
+@app.get("/nederen")
 def read_item(
     id: Union[str, None] = None,
     subject: Union[str, None] = None,
