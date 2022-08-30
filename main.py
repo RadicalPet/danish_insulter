@@ -25,8 +25,8 @@ def read_item(
     subject: Union[str, None] =  Query(None, description='add subject for the insult (han/hen/hun/min chef etc.) - default is "du"', ),
     unique: bool = Query(False, description='keep insult values unique to uuid until shortest list exhausted', ),
 
-    alliteration: bool = Query(False, description='will user alliterations where possible', ),
-    nolog: bool = Query(False, description='do not log insult - nolog False required by unique', ),
+    alliteration: bool = Query(False, description='will us alliterations where possible', ),
+    nolog: bool = Query(False, description='do not log insult - nolog false required by unique', ),
 
 ):
     insult = Insult(id, subject, unique, alliteration, nolog)
