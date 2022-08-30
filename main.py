@@ -1,8 +1,7 @@
 from typing import Union
-
 from fastapi import FastAPI, Query
-
 from insult import *
+
 
 tags_metadata = [
     {
@@ -39,3 +38,10 @@ def read_item(
     except ListExhaustedException as e:
         return {"error": e, "id": id, "insult": None}
     return {"error": error, "id": id, "insult": insult}
+
+@app.get("/historisk/{id}")
+def read_item(id):
+    print(id)
+    insult = Insult(id=id)
+    all_insults = insult.get_all_logged_insults()
+    return {"insults": all_insults}

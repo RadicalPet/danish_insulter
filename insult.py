@@ -1,9 +1,11 @@
 import os
 import sqlite3
 import uuid
+
 from pathlib import Path
 from random import choice
 from typing import List, Union
+
 
 amplifier_path = "word_lists/amplifiers.txt"
 edder_path = "word_lists/edder.txt"
@@ -92,7 +94,7 @@ class Insult:
 
         return word_list
 
-    def get_all_loged_insults(self):
+    def get_all_logged_insults(self):
         cur = self.con.cursor()
         cur.execute("SELECT * FROM uuid_insult WHERE uuid = ?", (self.id,))
         insult_ids = [row[1] for row in list(cur.fetchall())]
@@ -100,13 +102,13 @@ class Insult:
         for insult_id in insult_ids:
             cur.execute("SELECT * FROM insults WHERE rowid = ?", (insult_id,))
             all_insults.append(cur.fetchone())
-        return all_insults
+        return [insult[0] for insult in all_insults]
 
     def remove_logged_words(self, word_list):
-        logged_insults = self.get_all_loged_insults()
+        logged_insults = self.get_all_logged_insults()
         logged_insults_word_list = []
         for insult in logged_insults:
-            for word in insult[0].split():
+            for word in insult.split():
                 logged_insults_word_list.append(word)
         word_list_copy = word_list.copy()
         for word in word_list_copy:
