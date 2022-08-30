@@ -9,6 +9,10 @@ tags_metadata = [
         "name": "nederen",
         "description": "request a Danish insult",
     },
+    {
+        "name": "historisk",
+        "description": "get insult history for an id"
+    }
 ]
 
 app = FastAPI(openapi_tags=tags_metadata)
