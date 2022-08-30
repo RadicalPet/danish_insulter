@@ -1,3 +1,4 @@
+afsindig
 blodbestænkt
 defekt
 elendig
@@ -30,11 +31,14 @@ pilrådden
 rædderlig
 rædselsfuld
 sjasket
+skammelig
 skummel
+sløvsindet
 styg
 tudegrim
 uappetitlig
 uæstetisk
+uden for terapeutisk rækkevidde
 uduelig
 uformelig
 uhumsk
