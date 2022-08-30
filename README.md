@@ -1,7 +1,7 @@
 # danish_insulter
 generates Danish insults
 
-IaaS (Insults as a Service): [edderma.me](https://eddarma.me)
+IaaS (Insults as a Service): [edderma.me](https://edderma.me)
 <br><br>
 
 * [Insult](https://edderma.me/nederen) : `GET /nederen`
@@ -14,7 +14,7 @@ IaaS (Insults as a Service): [edderma.me](https://eddarma.me)
 - `nolog=true`
     - does not log insult - cannot used together with `unique`
 
-<br><br>
+
 Example response
 ```json
 {
