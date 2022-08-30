@@ -1,11 +1,10 @@
 # danish_insulter
 generates Danish insults
 
-IaaS (Insults as a Service): [edderma.me](eddarma.me)
+IaaS (Insults as a Service): [edderma.me](https://eddarma.me)
 <br><br>
 
-* [Insult](edderma.me/nederen) : `GET /nederen`
-* Parameters:
+* [Insult](https://edderma.me/nederen) : `GET /nederen`
 - `alliteration=true`
     - tries to use alliterations were possible
 - `unique=true`
