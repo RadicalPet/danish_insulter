@@ -1,6 +1,5 @@
 absurde
 abstruse
-allerhelvedes
 altoverskyggende
 åndsforsnoskede
 apoalyptiske
@@ -11,6 +10,7 @@ debile
 deliriske
 desperate
 djævleblændte
+drønende
 edderspændte
 evnesvage
 fjogede
@@ -30,7 +30,7 @@ kugleskøre
 kvajede
 latterlige
 lunatiske
-maximale
+maksimale
 mystiske
 pissehamrende
 pivhamrende

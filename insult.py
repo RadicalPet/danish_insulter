@@ -147,7 +147,7 @@ class Insult:
         self.find_amplifiers(word)
         return word
 
-    def get_insult(self) -> (bool, str, str):
+    def get_insult(self) -> (Union[None, str], str, str):
 
         if self.nolog and self.unique:
             return ("unique and nolog can not be used together", "")
