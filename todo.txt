@@ -1,0 +1,12 @@
+website
+    - insulter website
+
+automated compound words
+    - build random amplifier/insult combinations
+
+weighted insults
+    - strength of insult parameter
+
+audio
+    - get all recordings of all insults
+
