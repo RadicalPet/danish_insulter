@@ -1,5 +1,5 @@
-website
-    - insulter website
+fix article on et
+    - en vs et
 
 automated compound words
     - build random amplifier/insult combinations
