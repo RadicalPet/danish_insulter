@@ -23,7 +23,7 @@ templates = Jinja2Templates(directory="templates")
 
 
 @app.get("/", response_class=HTMLResponse, tags=["default"])
-def read_root(request: Request, insult:bool = False, id:Union[str, None] = None, subject:str = False, unique:bool = False, alliteration:bool = False):
+def read_root(request: Request, insult:bool = False, id:Union[str, None] = None, subject:Union[str, None] = None, unique:bool = False, alliteration:bool = False):
     insult_result=""
     if insult:
         if id == "None":
@@ -38,7 +38,6 @@ def read_root(request: Request, insult:bool = False, id:Union[str, None] = None,
             error, id, insult = insult.get_insult()
         insult_result = insult
     return templates.TemplateResponse("insult.html", {"request": request, "id": id, "subject": subject, "unique": unique, "insult_result": insult_result })
-
 
 
 @app.get("/nederen", tags=["nederen"])

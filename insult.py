@@ -106,13 +106,10 @@ class Insult:
 
     def remove_logged_words(self, word_list):
         logged_insults = self.get_all_logged_insults()
-        logged_insults_word_list = []
-        for insult in logged_insults:
-            for word in insult.split():
-                logged_insults_word_list.append(word)
+        logged_insults = " ".join(logged_insults)
         word_list_copy = word_list.copy()
         for word in word_list_copy:
-            if word in logged_insults_word_list:
+            if word in logged_insults:
                 word_list.remove(word)
         return word_list
 
@@ -139,7 +136,7 @@ class Insult:
     ) -> Union[str, None]:
         if self.unique:
             word_list = self.remove_logged_words(word_list)
-        word_list = self.remove_found_amplifiers(word_list)
+        word_list = self.remove_found_amplifiers(word_list) 
         if not word_list:
             raise ListExhaustedException(word_type)
         if letter:
@@ -174,7 +171,6 @@ class Insult:
             full_insult = (
                 f"{self.subject} er {edder} {disgusting}, den {fucking} {insult}"
             )
-
         if not self.nolog:
             self.log_insult(full_insult)
         return (None, self.id, full_insult)

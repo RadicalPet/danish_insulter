@@ -12,8 +12,12 @@
       <input type="hidden" name="id" value="{{id}}" />
       <input type="hidden" name="unique" value="true" />
       <input type="submit"  value="Insult"/>
+      {% if subject is not none %}
+      <input type="text" name="subject" value="{{subject}}">
+      {% else %}
       <input type="text" name="subject" value="me">
-    </form>
+      {% endif %}
+     </form>
     &nbsp;&nbsp;
     <form action="" method="GET">
       <input type="hidden" name="insult" value="true" />
@@ -21,7 +25,11 @@
       <input type="hidden" name="unique" value="true" />
       <input type="hidden" name="alliteration" value="true" />
       <input type="submit"  value="Insult"/>
+      {% if subject is not none %}
+      <input type="text" name="subject" value="{{subject}}">
+      {% else %}
       <input type="text" name="subject" value="me">
+      {% endif %}
       <h1>with alliterations</h1>
     </form> 
     <marquee direction="left"><p>{{ insult_result }}</p></marquee>
