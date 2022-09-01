@@ -24,7 +24,7 @@ templates = Jinja2Templates(directory="templates")
 
 @app.get("/", response_class=HTMLResponse, tags=["default"])
 def read_root(request: Request, insult:bool = False, id:Union[str, None] = None, subject:str = False, unique:bool = False, alliteration:bool = False):
-    insult_result=None
+    insult_result=""
     if insult:
         if subject=="me":
             subject=None
