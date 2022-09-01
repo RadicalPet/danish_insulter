@@ -1,0 +1,25 @@
+@font-face {
+    font-family: Aboreto;
+    src: url(fonts/Aboreto-Regular.ttf);
+}
+@font-face {
+    font-family: IndieFlower;
+    src: url(fonts/IndieFlower-Regular.ttf);
+}
+@font-face {
+    font-family: Pacifico;
+    src: url(fonts/Pacifico-Regular.ttf);
+}
+@font-face {
+    font-family: Silkscreen;
+    src: url(fonts/Silkscreen-Regular.ttf);
+}
+@font-face {
+    font-family: UncialAntiqua;
+    src: url(fonts/UncialAntiqua-Regular.ttf);
+}
+
+h1 {font-family: sans-serif; font-size: 1em; display: inline-block;}
+form{display: inline-block;}
+p {font-size: 2em}
+
