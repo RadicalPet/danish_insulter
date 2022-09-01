@@ -26,9 +26,11 @@ templates = Jinja2Templates(directory="templates")
 def read_root(request: Request, insult:bool = False, id:Union[str, None] = None, subject:str = False, unique:bool = False, alliteration:bool = False):
     insult_result=""
     if insult:
+        if id == "None":
+            id = None
         if subject=="me":
             subject=None
-        insult = Insult(id=id, subject=subject, unique=unique, alliteration=alliteration)
+        insult = Insult(id=id, subject=subject, unique=True, alliteration=alliteration)
         try:
             error, id, insult = insult.get_insult()
         except ListExhaustedException as e:
