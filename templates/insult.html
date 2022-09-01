@@ -1,0 +1,36 @@
+<html>
+<head>
+
+    <title>Danish Insulter</title>
+    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+</head>
+<body >
+    <center>
+
+    <form action="" method="GET">
+      <input type="hidden" name="insult" value="true" />
+      <input type="hidden" name="id" value="{{id}}" />
+      <input type="hidden" name="unique" value="true" />
+      <input type="submit"  value="Insult"/>
+      <input type="text" name="subject" value="me">
+    </form>
+    &nbsp;&nbsp;
+    <form action="" method="GET">
+      <input type="hidden" name="insult" value="true" />
+      <input type="hidden" name="id" value="{{id}}" />
+      <input type="hidden" name="unique" value="true" />
+      <input type="hidden" name="alliteration" value="true" />
+      <input type="submit"  value="Insult"/>
+      <input type="text" name="subject" value="me">
+      <h1>with alliterations</h1>
+    </form> 
+    <marquee direction="left"><p>{{ insult_result }}</p></marquee>
+    <p>{{insult_result}}</p>
+    <br>
+    <marquee direction="right"><p>{{ insult_result }}</p></marquee>
+    </center>
+</body>
+    <script>
+    document.body.style.fontFamily = ["Aboreto","IndieFlower","Pacifico","Silkscreen","UncialAntiqua"][Math.floor(Math.random() * 5)]
+    </script>
+</html>
