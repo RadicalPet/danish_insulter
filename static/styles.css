@@ -18,8 +18,8 @@
     font-family: UncialAntiqua;
     src: url(fonts/UncialAntiqua-Regular.ttf);
 }
-
-h1 {font-family: sans-serif; font-size: 1em; display: inline-block;}
+html {margin-left: 200px; margin-right: 200px;}
+h1 {font-family: sans-serif; font-size: 15px; display: inline-block;}
 form{display: inline-block;}
 p {font-size: 2em}
 
