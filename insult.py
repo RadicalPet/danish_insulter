@@ -163,13 +163,21 @@ class Insult:
         fucking = self.get_word(self.fucking_list, "fucking", letter)
         if self.alliteration:
             letter = fucking[0]
-        insult = self.get_word(self.insult_list, "insult", letter)
+        insult_with_gender = self.get_word(self.insult_list, "insult", letter).split(";")[0]
+        insult = insult_with_gender[0]
+        gender = insult_with_gender[1]
 
         if not self.subject:
-            full_insult = f"du er {edder} {disgusting}, din {fucking} {insult}"
+            article = 'din'
+            if gender == 'et':
+                article = 'dit'
+            full_insult = f"du er {edder} {disgusting}, {article} {fucking} {insult}"
         else:
+            article = 'den'
+            if gender == 'et'
+                article = 'det'
             full_insult = (
-                f"{self.subject} er {edder} {disgusting}, den {fucking} {insult}"
+                f"{self.subject} er {edder} {disgusting}, {article} {fucking} {insult}"
             )
         if not self.nolog:
             self.log_insult(full_insult)
