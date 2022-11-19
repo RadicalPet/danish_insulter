@@ -3,61 +3,38 @@ generates Danish insults
 
 IaaS (Insults as a Service): [edderma.me](https://edderma.me/docs)
 <br><br>
+`uvicorn main:app --host 0.0.0.0 --port 443 --ssl-keyfile=/etc/letsencrypt/live/edderma.me/privkey.pem --ssl-certfile=/etc/letsencrypt/live/edderma.me/fullchain.pem`
+
+## Generated sample insults
+
+Without alliteration:
+
+- du er fandenfløjtemig afskyelig, din barokke mandagsdesertør
+- du er edderbuttfuckemig ondartet, din tudetossede skidespræller
+- du er guddødeme uden for terapeutisk rækkevidde, din lunatiske vatnisse
+- du er gudhjælpemig uappetitlig, dit forpulede fedthalefår
+- du er kraftstejlme uformelig, din kugleskøre svagpisser
+- du er edderfandme underlødig, din utålelige pikfisk
+- du er uden tvivl frastødende, din groteske pismyre
+- du er fandentagemig ildelugtende, din uforlignelige lurendrejer
+- du er pivhamrende patetisk, dit altoverskyggende paphoved
 
 
-Below list of insults has been created with `python insulter.py --log log.txt --unique` which uses each word exactly once until the shortest wordlist has been exhausted.<br>
-The insulter always uses `amplifier.txt` to make sure that no two words with the same amplifier are used within one insult.
+With alliteration:
 
-- du er kraftstejlme ful, din tumpede afskum
-- du er edderrøveme uappetitlig, din forpulede klodsmajor
-- du er edderfandme forbistret, din desperate kvælstofbacille
-- du er fandenpuleme kreperlig, din harmdirrende knoldvækst
-- du er kraftpeterpuleme uformelig, din rasende fedthalefår
-- du er satanraspemig frastødende, din lunatiske lommemussolini
-- du er denondelynemig rædderlig, din pløkåndssvage lurendrejer
-- du er edderfandenfiseme vammel, din forbaskede svumpukkel
-- du er fandenfløjtemig ikke fem potter pis værd, din sindssyge åndspygmæ
-- du er edderhakkemig klam, din interplanetariske mandagsdessertør
-- du er sørenjenseme grim, din debile glatnakke
-- du er edderknasemig utiltalende, din vanvittige skruebrækker
-- du er edderbrandbrølemig ildelugtende, din hysteriske trillebørsspekulant
-- du er fandensparkemefløjtende modbydelig, din djævleblændte trompetsnegl
-- du er skampetervæltemig grim som arvesynden, din balstyriske fedtemikkel
-- du er edderbuttfuckemig elendig, din kvajede kanalje
-- du er fandenpikeme nedrig, din kugleskøre jubeltorsk
-- du er edderbukme underlødig, din furiøse paphoved
-- du er eddersateme rædselsfuld, din splittertossede bøllefrø
-- du er kraftedme tudegrim, din groteske hulepindsvin
-- du er dælendytme ulækker, din deliriske torskehoved
-- du er kraftpetervæltemig håbløs, din stiktossede pismyre
-- du er saftsuseedderpeterhamresparkemig forfærdelig, din evnesvage kakerlak
-- du er fandengalemig uæstetisk, din åndssløve stymper
+- du er for satan i helvede fejlslagen, din abstruse agurketud
+- du er allerhelvedes alvorlig, dit terminale torskehoved
+- du er hamrende håbløs, din rekordagtige røvbanan
+- du er eddermame elendig, din åndssvage ågerkarl
+- du er saftsuseedderpeterhamresparkemig sjasket, din maksimale møgfisse
+- du er kraftpeterslikfisme kaput, din deliriske dydstrompet
+- du er kraftpeterpuleme klam, din latterlige lilleøldrikker
+- du er for uglen i hulen da forfærdelig, din stiktossede stymper
+- du er guddødeme grim som bare fanden, din evnesvage edderfugl
 
-The following list has been created with the `--alliteration` flag enabled:
 
-- du er fandenfløjtemig forbistret, din pivhamrende paphoved
-- du er fandeme forfærdelig, din interplanetariske båtnakke
-- du er fandensparkemefløjtende uæstetisk, din lunatiske lurendrejer
-- du er kraftpetervæltemig klam, din forpulede fedtemikkel
-- du er saftsuseedderpeterhamresparkemig skummel, din åndssløve mandagsdessertør
-- du er fandenpuleme fæl, din latterlige lommemussolini
-- du er fandenpikeme forpjusket, din kugleskøre klodsmajor
-- du er edderfandme elendig, din stjernetossede skidespræller
-- du er skampetervæltemig styg, din desperate edderfugl
-- du er eddermukme ulækker, din vanvittige vatnisse
-- du er kraftknusme kreperlig, din barokke bøllefrø
-- du er fandengalemig frastødende, din tumpede trillebørsspekulant
-- du er eddersateme uappetitlig, din groteske glatnakke
-- du er satanraspemig rædderlig, din åndssvage pikansjos
-- du er eddermame muggen, din deliriske tyndskidspresser
-- du er edderrøveme gyselig, din stiktossede spritbilist
-- du er edderknasemig grim som arvesynden, din debile knoldvækst
-- du er krafthelvede utiltalende, din djævleblændte pismyre
-- du er edderbuttfuckemig ildelugtende, din pissehamrende pikhoved
-- du er edderbrandbrølemig jordslået, din rivende røvbanan
-- du er edderhakkemig grim som bare fanden, din mystiske møgfisse
-- du er kraftpeterpuleme uformelig, din abstruse trompetsnegl
-- du er satanraspemig skummel, din rekordagtige røvbanan
+
+
 
 
 The insult wordlist is heavily inspired by the excellent musings of Captain Haddock.<br>
