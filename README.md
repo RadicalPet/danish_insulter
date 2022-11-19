@@ -3,7 +3,16 @@ generates Danish insults
 
 IaaS (Insults as a Service): [edderma.me](https://edderma.me/docs)
 <br><br>
+
+## Sample deployment commands
+
+**production**
+
 `uvicorn main:app --host 0.0.0.0 --port 443 --ssl-keyfile=/etc/letsencrypt/live/edderma.me/privkey.pem --ssl-certfile=/etc/letsencrypt/live/edderma.me/fullchain.pem`
+
+**dev**
+
+`uvicorn main:app --host 127.0.0.1 --port 8000`
 
 ## Generated sample insults
 
