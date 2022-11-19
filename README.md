@@ -10,7 +10,7 @@ IaaS (Insults as a Service): [edderma.me](https://edderma.me/docs)
 
 `uvicorn main:app --host 0.0.0.0 --port 443 --ssl-keyfile=/etc/letsencrypt/live/edderma.me/privkey.pem --ssl-certfile=/etc/letsencrypt/live/edderma.me/fullchain.pem`
 
-### nginx config
+nginx config `/etc/nginx/sites-enabled/edderma.me`
 
 ```
 server {
