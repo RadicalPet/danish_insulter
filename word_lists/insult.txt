@@ -32,7 +32,7 @@ klodsmajor;en
 knoldesparker;en
 knoldvækst;en
 kvælstofbacille;en
-lilleøldrikker:en
+lilleøldrikker;en
 lommemussolini;en
 lurendrejer;en
 mandagsdesertør;en
