@@ -3,6 +3,7 @@ afskum;et
 amøbe;en
 ågerkarl;en
 åndspygmæ;en
+åndstuberkel;en
 bændelorm;en
 båtnakke;en
 bøllefrø;en
@@ -11,6 +12,7 @@ bløddyr;et
 courgettesnøvel;en
 dydstrompet;en
 edderfugl;en
+eddersvulst;en
 eddertudse;en
 fedtemikkel;en
 fedthalefår;et
@@ -24,11 +26,13 @@ horebuk;en
 jubeltorsk;en
 kakerlak;en
 kanalje;en
+karcinom;et
 klaptorsk;en
 klodsmajor;en
 knoldesparker;en
 knoldvækst;en
 kvælstofbacille;en
+lilleøldrikker:en
 lommemussolini;en
 lurendrejer;en
 mandagsdesertør;en
@@ -57,7 +61,7 @@ tarmparasit;en
 torskehoved;et
 trillebørsspekulant;en
 trompetsnegl;en
-tyndskidspresser;
+tyndskidspresser;en
 væggelus;en
 vatnisse;en
 vatpik;en
