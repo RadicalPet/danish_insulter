@@ -37,6 +37,8 @@ Without alliteration:
 - du er uden tvivl frastødende, din groteske pismyre
 - du er fandentagemig ildelugtende, din uforlignelige lurendrejer
 - du er pivhamrende patetisk, dit altoverskyggende paphoved
+- du er kraftknusme værdigløs, din debile spyflue
+- du er saftsuseme jordslået, din røvirriternde tarmparasit
 
 
 With alliteration:
@@ -50,9 +52,6 @@ With alliteration:
 - du er kraftpeterpuleme klam, din latterlige lilleøldrikker
 - du er for uglen i hulen da forfærdelig, din stiktossede stymper
 - du er guddødeme grim som bare fanden, din evnesvage edderfugl
-
-
-
 
 
 
