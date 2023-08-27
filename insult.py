@@ -109,7 +109,7 @@ class Insult:
         logged_insults = " ".join(logged_insults)
         word_list_copy = word_list.copy()
         for word in word_list_copy:
-            if word in logged_insults:
+            if word.split(";")[0] in logged_insults:
                 word_list.remove(word)
         return word_list
 
